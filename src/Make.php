@@ -974,13 +974,15 @@ class Make
             false,
             $identificador . "Nome fantasia do emitente"
         );
-        $this->dom->addChild(
-            $this->emit,
-            "IE",
-            Strings::onlyNumbers($std->IE),
-            true,
-            $identificador . "Inscrição Estadual do emitente"
-        );
+        if( $std->IE != '' ){
+            $this->dom->addChild(
+                $this->emit,
+                "IE",
+                Strings::onlyNumbers($std->IE),
+                true,
+                $identificador . "Inscrição Estadual do emitente"
+            );
+        }
         $this->dom->addChild(
             $this->emit,
             "IEST",
